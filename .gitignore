@@ -1,0 +1,29 @@
+# --- Build del Sistema (pesado)---
+build/
+.gradle/
+app/build/
+.cxx/
+.externalNativeBuild/
+
+# --- Configuración Local y Secretos ---
+local.properties
+
+# --- IDE (Android Studio / IntelliJ) ---
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# --- Archivos de Sistema Operativo (Basura) ---
+.DS_Store
+Thumbs.db
+
+# --- Archivos de Firma y Claves ---
+*.jks
+*.keystore
+*.pem
+*.p12
+
+# --- Otros ---
+captures/
+/captures
