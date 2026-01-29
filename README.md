@@ -12,6 +12,7 @@ Una aplicación Android que sirve para llevar un registro de las materias aproba
 * Copia de Seguridad 
   * Exporta e importa tu progreso en formato JSON.
 * Modo oscuro
+* 26 carreras incorporadas!
 
 ## Tecnologías
 * Kotlin
@@ -23,6 +24,10 @@ Una aplicación Android que sirve para llevar un registro de las materias aproba
 ## Apoyá el proyecto
 Si esta app te resultó útil, podés invitarme a un café:
 [¡Donar un Cafecito!](https://cafecito.app/franciscobarberena)
+
+## Imágenes 
+<img width="302" height="633" alt="imagen" src="https://github.com/user-attachments/assets/40c9c399-e2b7-4681-b443-f26fbe7f32e1" />
+
 
 ## Contacto
 Si encontraste un error o tenés una sugerencia, contactame desde la sección "Colaborar" dentro de la app.
