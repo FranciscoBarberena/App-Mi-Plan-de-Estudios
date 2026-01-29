@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Consola"
+rootProject.name = "Mi-Plan-de-Estudios"
 include(":app")
 include(":lib")
