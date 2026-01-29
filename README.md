@@ -2,17 +2,23 @@
 
 Una aplicación Android que sirve para llevar un registro de las materias aprobadas de tu carrera universitaria.
 
+## Descargar
+Descarga la última versón de la app acá:
+### [Descargar APK](https://github.com/Fran-dev357/Mi-Plan-de-Estudios/releases/latest)
+
 ## Funcionalidades
 * Seguimiento de Materias  
-  * Marcá materias como aprobadas o cursadas.
+  * Marca materias como aprobadas o cursadas.
 * Sistema de Correlatividades
-  * La app bloquea materias si no cumplís los requisitos para cursar/rendir.
+  * Bloquea materias si no cumplís los requisitos para cursar/rendir.
 * Promedio y porcentaje de la carrera completado
-  * La app calcula tu promedio actual, y el porcentaje de materias que ya aprobaste.
+  * Calcula tu promedio actual, y el porcentaje de materias que ya aprobaste.
 * Copia de Seguridad 
   * Exporta e importa tu progreso en formato JSON.
-* Modo oscuro
-* 26 carreras incorporadas!
+* Personalización
+  * Modo oscuro
+  * Colores de acento
+* 26 carreras de la UNLP incorporadas!
 
 ## Tecnologías
 * Kotlin
@@ -25,9 +31,13 @@ Una aplicación Android que sirve para llevar un registro de las materias aproba
 Si esta app te resultó útil, podés invitarme a un café:
 [¡Donar un Cafecito!](https://cafecito.app/franciscobarberena)
 
-## Imágenes 
-<img width="302" height="633" alt="imagen" src="https://github.com/user-attachments/assets/40c9c399-e2b7-4681-b443-f26fbe7f32e1" />
-
-
 ## Contacto
 Si encontraste un error o tenés una sugerencia, contactame desde la sección "Colaborar" dentro de la app.
+
+## Imágenes 
+<img width="302" height="633" alt="imagen" src="https://github.com/user-attachments/assets/40c9c399-e2b7-4681-b443-f26fbe7f32e1" /> <img width="311" height="634" alt="imagen" src="https://github.com/user-attachments/assets/e6833c64-b83e-4247-8617-2e0ab3e51ce9" />
+
+
+
+
+
