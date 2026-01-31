@@ -2,7 +2,7 @@
 
 * Una aplicación Android que sirve para llevar un registro de las materias aprobadas de tu carrera de la UNLP.
 
-## [Descargar APK de la útlima versión](https://github.com/Fran-dev357/Mi-Plan-de-Estudios/releases/latest)
+## [Descargar APK de la útlima versión](https://github.com/FranciscoBarberena/Mi-Plan-de-Estudios/releases/latest)
 
 
 ## Funcionalidades
