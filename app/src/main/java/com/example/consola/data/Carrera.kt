@@ -22,6 +22,7 @@ import com.example.consola.data.mapas.DataLicenciaturaEnInformatica
 import com.example.consola.data.mapas.DataLicenciaturaEnPsicologia
 import com.example.consola.data.mapas.DataLicenciaturaEnSistemas
 import com.example.consola.data.mapas.DataMedicina
+import com.example.consola.data.mapas.DataMedicinaVeterinaria
 import com.example.consola.data.mapas.DataProfesoradoEnArtesPlasticas
 import com.example.consola.data.mapas.DataProfesoradoEnDisenoComunicacionVisual
 import com.example.consola.data.mapas.DataProfesoradoEnDisenoIndustrial
@@ -65,7 +66,10 @@ class Carrera(var nombre: String) {
             "Profesorado en Diseño en Comunicación Visual" to DataProfesoradoEnDisenoComunicacionVisual,
             "Abogacía" to DataAbogacia,
             "Profesorado en Psicología" to DataProfesoradoEnPsicologia,
-            "Medicina" to DataMedicina
+            "Medicina" to DataMedicina,
+            //"Licenciatura en Economía (Plan VII)" to DataEconomiaPlanVII,
+            //"Licenciatura en Economía (Plan VIII)" to DataEconomiaPlanVIII,
+            "Medicina Veterinaria" to DataMedicinaVeterinaria,
         ).toSortedMap()
     }
 

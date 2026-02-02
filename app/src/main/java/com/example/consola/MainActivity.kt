@@ -2,7 +2,8 @@ package com.example.consola
 
 import android.R.attr.minLines
 import android.R.attr.onClick
-
+import androidx.compose.ui.text.style.Hyphens
+import androidx.compose.ui.text.style.LineBreak
 import android.os.Bundle
 import android.widget.Toast
 import java.text.SimpleDateFormat
@@ -44,11 +45,13 @@ import androidx.compose.foundation.layout.displayCutout
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -130,6 +133,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.intl.LocaleList
 
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
@@ -431,7 +435,6 @@ fun pantallaPrinicipal(miViewModel: ListaMateriasViewModel = viewModel()) {
                                 )
                                 .weight(1f),
                             elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-
                             border = if (miViewModel.colorTemaSegunEstado) BorderStroke(
                                 2.dp,
                                 colorSegunEstado(materia, materia.estadoDeMateria)
@@ -453,12 +456,20 @@ fun pantallaPrinicipal(miViewModel: ListaMateriasViewModel = viewModel()) {
                                         .padding(start = 8.dp)
                                         .weight(1f)
                                 ) {
+
                                     Text(
                                         text = materia.nombre,
-                                        style = MaterialTheme.typography.titleMedium,
                                         color = colorSegunBloqueo(materia, materia.puedoCursar),
                                         textAlign = TextAlign.Start,
-                                        overflow = TextOverflow.Ellipsis
+                                        overflow = TextOverflow.Ellipsis,
+                                        style = MaterialTheme.typography.titleMedium.copy(
+                                            hyphens = Hyphens.Auto, // Guion cuando se queda sin espacio
+                                            lineBreak = LineBreak.Paragraph, // Mejora el algoritmo de salto de línea
+                                            localeList = LocaleList("es-AR") //Idioma arg para separar en sílabas bien
+                                        ),
+                                        maxLines = 4,
+
+
                                     )
                                     Text(
                                         text = "(${materia.estadoDeMateria})",
@@ -731,20 +742,22 @@ fun pantallaColaborar(miViewModel: ListaMateriasViewModel) {
     Scaffold(
         topBar = { barraSuperiorColaborar(miViewModel) },
     ) { innerPadding ->
-        Column(modifier = Modifier
-            .fillMaxSize()
-            .padding(innerPadding)
-            .padding(20.dp)
-            .verticalScroll(rememberScrollState()),
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding)
+                .padding(20.dp)
+                .verticalScroll(rememberScrollState()),
 
-          //separacion entre tarjetas
+            //separacion entre tarjetas
             verticalArrangement = Arrangement.spacedBy(20.dp),
-            horizontalAlignment = Alignment.CenterHorizontally) {
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
 
             Card(
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onBackground),
 
-                border = BorderStroke(2.dp, MaterialTheme.colorScheme.primary) ,
+                border = BorderStroke(2.dp, MaterialTheme.colorScheme.primary),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
             ) {
                 Column(
@@ -768,16 +781,16 @@ fun pantallaColaborar(miViewModel: ListaMateriasViewModel) {
                         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                         context.startActivity(intent)
                     }, modifier = Modifier.align(Alignment.CenterHorizontally)) {
-                    Row(){
-                        Text(
-                            "Donar un cafecito ",
-                            fontStyle = MaterialTheme.typography.titleLarge.fontStyle,
-                            fontWeight = FontWeight.Bold,
-                            fontSize = 20.sp
-                        )
-                        Icon(Icons.Default.Coffee, contentDescription = "Ir a cafecito")
+                        Row() {
+                            Text(
+                                "Donar un cafecito ",
+                                fontStyle = MaterialTheme.typography.titleLarge.fontStyle,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 20.sp
+                            )
+                            Icon(Icons.Default.Coffee, contentDescription = "Ir a cafecito")
 
-                    }
+                        }
 
 
                     }
@@ -787,7 +800,7 @@ fun pantallaColaborar(miViewModel: ListaMateriasViewModel) {
             Card(
                 colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onBackground),
 
-                border = BorderStroke(2.dp, MaterialTheme.colorScheme.primary) ,
+                border = BorderStroke(2.dp, MaterialTheme.colorScheme.primary),
                 elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
             ) {
                 Column(
@@ -810,7 +823,7 @@ fun pantallaColaborar(miViewModel: ListaMateriasViewModel) {
                             )
 
                     )
-                    Button(onClick =  {
+                    Button(onClick = {
                         val intent = Intent(Intent.ACTION_SENDTO).apply {
                             data = Uri.parse("mailto:")
                             putExtra(Intent.EXTRA_EMAIL, arrayOf(emailDesarrollador))
@@ -819,10 +832,14 @@ fun pantallaColaborar(miViewModel: ListaMateriasViewModel) {
                         try {
                             context.startActivity(intent)
                         } catch (e: Exception) {
-                            Toast.makeText(context, "No hay app de correo instalada", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                context,
+                                "No hay app de correo instalada",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }, modifier = Modifier.align(Alignment.CenterHorizontally)) {
-                        Row(){
+                        Row() {
                             Text(
                                 "Enviar correo ",
                                 fontStyle = MaterialTheme.typography.titleLarge.fontStyle,
@@ -1307,11 +1324,12 @@ fun BotonCarrera(text: String, onClick: () -> Unit) {
         onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
-            .height(56.dp),
+            .heightIn(min = 56.dp), //Es la altura mínima
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.primary
         ),
-        shape = RoundedCornerShape(12.dp)
+        shape = RoundedCornerShape(12.dp),
+        contentPadding = PaddingValues(vertical = 12.dp, horizontal = 16.dp)
     ) {
         Text(
             text = text,
