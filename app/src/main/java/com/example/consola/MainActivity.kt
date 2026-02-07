@@ -68,6 +68,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.CheckBox
 import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.Coffee
 import androidx.compose.material.icons.filled.ColorLens
 import androidx.compose.material.icons.filled.Done
@@ -470,7 +471,7 @@ fun pantallaPrinicipal(miViewModel: ListaMateriasViewModel = viewModel()) {
                                         maxLines = 4,
 
 
-                                    )
+                                        )
                                     Text(
                                         text = "(${materia.estadoDeMateria})",
                                         style = MaterialTheme.typography.titleMedium,
@@ -734,7 +735,8 @@ fun barraSuperiorColaborar(miViewModel: ListaMateriasViewModel) {
 @Composable
 fun pantallaColaborar(miViewModel: ListaMateriasViewModel) {
     val context = LocalContext.current
-    val url = "https://cafecito.app/franciscobarberena"
+    val urlCafecito = "https://cafecito.app/franciscobarberena"
+    val urlGitHub = "https://github.com/FranciscoBarberena"
     val emailDesarrollador = BuildConfig.EMAIL_DEV
     BackHandler {
         miViewModel.estadoPantalla = EstadoPantalla.PRINCIPAL
@@ -778,7 +780,7 @@ fun pantallaColaborar(miViewModel: ListaMateriasViewModel) {
                     )
 
                     Button(onClick = {
-                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(urlCafecito))
                         context.startActivity(intent)
                     }, modifier = Modifier.align(Alignment.CenterHorizontally)) {
                         Row() {
@@ -791,7 +793,6 @@ fun pantallaColaborar(miViewModel: ListaMateriasViewModel) {
                             Icon(Icons.Default.Coffee, contentDescription = "Ir a cafecito")
 
                         }
-
 
                     }
                 }
@@ -854,6 +855,51 @@ fun pantallaColaborar(miViewModel: ListaMateriasViewModel) {
 
                 }
             }
+            Card(
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.onBackground),
+
+                border = BorderStroke(2.dp, MaterialTheme.colorScheme.primary),
+                elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+            ) {
+                Column(
+                    modifier = Modifier
+                        .padding(20.dp)
+
+
+                ) {
+                    Text(
+                        text = "Para seguir el progreso de la app, podés visitar mi GitHub:",
+                        color = MaterialTheme.colorScheme.inverseSurface,
+                        textAlign = TextAlign.Center,
+                        fontStyle = MaterialTheme.typography.titleLarge.fontStyle,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(
+                            bottom = 10.dp,
+                            start = 10.dp,
+                            end = 10.dp,
+
+                            )
+
+                    )
+                    Button(onClick = {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(urlGitHub))
+                        context.startActivity(intent)
+                    }, modifier = Modifier.align(Alignment.CenterHorizontally)) {
+                        Row() {
+                            Text(
+                                "GitHub ",
+                                fontStyle = MaterialTheme.typography.titleLarge.fontStyle,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 20.sp
+                            )
+                            Icon(Icons.Default.Code, contentDescription = "Ir a GitHub")
+
+                        }
+
+                    }
+
+                }
+            }
         }
     }
 }
@@ -867,7 +913,7 @@ fun ItemColorGrid(
 ) {
     Box(
         modifier = Modifier
-            .aspectRatio(1f) // Mantiene el aspecto circular
+            .aspectRatio(1f)
             .clip(CircleShape)
             .background(color)
             .clickable { onClick() }

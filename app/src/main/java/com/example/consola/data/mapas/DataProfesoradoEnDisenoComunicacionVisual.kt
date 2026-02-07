@@ -36,8 +36,7 @@ object DataProfesoradoEnDisenoComunicacionVisual : _InformacionDeCarrera {
         "Didáctica especial y práctica de la enseñanza"
     )
 
-    // Columna: "CORRELATIVAS PARA CURSAR" -> Subcolumna "CURSADA"
-    // Requisito: Tener la cursada (regularizada) de estas materias para CURSAR la actual.
+
     override val reglasDeCorrelatividadesCursadaConCursada = mapOf(
         0 to emptyList(),
         1 to emptyList(),
@@ -75,13 +74,10 @@ object DataProfesoradoEnDisenoComunicacionVisual : _InformacionDeCarrera {
 
 
 
-    // Columna: "CORRELATIVAS PARA APROBAR" -> Subcolumna "CURSADA"
-    // Requisito: Tener la cursada (regularizada) de estas materias para RENDIR el final de la actual.
-    // Nota: La mayoría están vacías, pero V0030 (Hist Arg) tiene requisitos aquí.
+
     override val reglasDeCorrelatividadesCursadaConFinal = reglasDeCorrelatividadesCursadaConCursada
 
-    // Columna: "CORRELATIVAS PARA CURSAR" -> Subcolumna "APROBADA"
-    // Requisito: Tener el FINAL aprobado de estas materias para CURSAR la actual.
+
     override val reglasDeCorrelatividadesFinalConCursada = mapOf(
         0 to emptyList(),
         1 to emptyList(),
@@ -117,8 +113,6 @@ object DataProfesoradoEnDisenoComunicacionVisual : _InformacionDeCarrera {
         31 to listOf(19,22)
     )
 
-    // Columna: "CORRELATIVAS PARA APROBAR" -> Subcolumna "APROBADA"
-    // Requisito: Tener el FINAL aprobado de estas materias para RENDIR (Aprobar final) de la actual.
     override val reglasDeCorrelatividadesFinalConFinal = reglasDeCorrelatividadesFinalConCursada + mapOf(
         8 to (reglasDeCorrelatividadesFinalConCursada[8]?.plus(listOf(2)) ?: emptyList()),
         14 to (reglasDeCorrelatividadesFinalConCursada[14]?.plus(listOf(8)) ?: emptyList()),

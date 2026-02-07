@@ -36,8 +36,6 @@ object DataDisenoIndustrial : _InformacionDeCarrera {
         "Seminario Optativo 4"                     // 31 (I0033)
     )
 
-    // Columna: "Materias Correlativas para Cursar" -> Subcolumna "Correlativa Cursada"
-    // Requisito: Tener la cursada (regularizada) de estas materias para CURSAR la actual.
     override val reglasDeCorrelatividadesCursadaConCursada = mapOf(
         0 to emptyList(),
         1 to emptyList(),
@@ -73,8 +71,7 @@ object DataDisenoIndustrial : _InformacionDeCarrera {
         31 to emptyList()          // Sem Opt 4 -> (Ver FinalConCursada)
     )
 
-    // Columna: "Materias Correlativas para Cursar" -> Subcolumna "Correlativa Aprobada"
-    // Requisito: Tener el FINAL aprobado de estas materias para CURSAR la actual.
+
     override val reglasDeCorrelatividadesFinalConCursada = mapOf(
         0 to emptyList(),
         1 to emptyList(),
@@ -110,10 +107,7 @@ object DataDisenoIndustrial : _InformacionDeCarrera {
         31 to listOf(25)           // Sem Opt 4 -> Final Sem Opt 2
     )
 
-    // Columna: "Materias Correlativas para Rendir" -> Subcolumna "Correlativa Aprobada"
-    // Requisito: Tener el FINAL aprobado de estas materias para RENDIR (Aprobar final) de la actual.
-    // Nota: La columna "Correlativa Cursada" bajo "Para Rendir" suele ser redundante o implica la regularidad propia,
-    // por lo que usamos la columna estricta de "Aprobada".
+
     override val reglasDeCorrelatividadesFinalConFinal = mapOf(
         0 to emptyList(),
         1 to emptyList(),

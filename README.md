@@ -17,7 +17,7 @@
 * Personalización
   * Modo oscuro
   * Colores de acento
-* 27 carreras de la UNLP!
+* 33 carreras de la UNLP!
 
 ## Tecnologías
 * Kotlin

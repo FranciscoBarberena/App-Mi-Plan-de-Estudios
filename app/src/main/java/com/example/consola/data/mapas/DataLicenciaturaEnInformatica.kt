@@ -71,7 +71,7 @@ object DataLicenciaturaEnInformatica : _InformacionDeCarrera {
         25 to listOf(17, 19),   // 0I401 -> SI308, SI306
         26 to listOf(21),       // SI403 -> SI304
         27 to listOf(22),       // 0I404 -> SI301
-        28 to emptyList(),      // Optativa
+        28 to listOf(16),      // Optativa
         29 to listOf(8, 19),    // 0I406 -> SI102, SI306
         30 to listOf(17),       // SI409 -> SI308
         31 to listOf(23),       // 0I402 -> SI305
@@ -89,7 +89,7 @@ object DataLicenciaturaEnInformatica : _InformacionDeCarrera {
     override val reglasDeCorrelatividadesCursadaConFinal = null
 
     override val cantidadDeAprobadasParaFinal = mapOf(
-        // Tesina: Requiere 1º y 2º año completos (17 materias) + 2 finales más = 19 materias aprobadas
+        // Tesina: Requiere 1º y 2º año completos (17 materias) + 2 finales  = 19 materias aprobadas
         36 to 19
     )
     override val cantidadDeCursadasParaCursar= emptyMap<Int, Int>()

@@ -30,7 +30,7 @@ data class Materia(val id: Int, val nombre: String) {
             if (!estaAprobada) {
                 this.hizoClickElUsiario = !(this.hizoClickElUsiario)
             } else {
-                throw Exception("Ya aprobaste $nombre con $nota. La cursada queda aprobada.")
+                throw Exception("Ya aprobaste $nombre con $nota. Para sacar la cursada, eliminá la nota")
             }
         } else {
             if (listaDeCursadasQueFaltanAprobarParaCursar.isNotEmpty() || listaDeFinalesQueFaltanAprobarParaCursar.isNotEmpty()) {
@@ -78,7 +78,7 @@ data class Materia(val id: Int, val nombre: String) {
                 if (!cumpleCantidadParaFinal) {
 
                     if (cantidadFaltanteDeFinalesParaFinal > 0)
-                        throw Exception("No se rendir final de $nombre. Faltan aprobar $cantidadFaltanteDeFinalesParaFinal materias en la carrera.")
+                        throw Exception("No se puede rendir final de $nombre. Faltan aprobar $cantidadFaltanteDeFinalesParaFinal materias en la carrera.")
                     else if (cantidadFaltanteDeCursadasParaFinal > 0)
                         throw Exception("No se puede rendir final de $nombre. Faltan cursar $cantidadFaltanteDeCursadasParaFinal materias en la carrera.")                }
             }

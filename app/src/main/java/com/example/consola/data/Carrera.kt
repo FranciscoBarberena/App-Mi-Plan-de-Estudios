@@ -1,6 +1,8 @@
 package com.example.consola.data
 
 import com.example.consola.data.mapas.DataAbogacia
+import com.example.consola.data.mapas.DataAnalistaEnTIC
+import com.example.consola.data.mapas.DataAPU
 import com.example.consola.data.mapas.DataArquitectura
 import com.example.consola.data.mapas.DataDisenoComunicacionVisual
 import com.example.consola.data.mapas.DataDisenoIndustrial
@@ -21,12 +23,16 @@ import com.example.consola.data.mapas.DataLicenciaturaEnArtesPlasticas
 import com.example.consola.data.mapas.DataLicenciaturaEnInformatica
 import com.example.consola.data.mapas.DataLicenciaturaEnPsicologia
 import com.example.consola.data.mapas.DataLicenciaturaEnSistemas
+import com.example.consola.data.mapas.DataLicenciaturaEnSociologia
 import com.example.consola.data.mapas.DataMedicina
 import com.example.consola.data.mapas.DataMedicinaVeterinaria
 import com.example.consola.data.mapas.DataProfesoradoEnArtesPlasticas
 import com.example.consola.data.mapas.DataProfesoradoEnDisenoComunicacionVisual
 import com.example.consola.data.mapas.DataProfesoradoEnDisenoIndustrial
 import com.example.consola.data.mapas.DataProfesoradoEnPsicologia
+import com.example.consola.data.mapas.DataProfesoradoEnSociologia
+import com.example.consola.data.mapas.DataProfesoradoIngles
+import com.example.consola.data.mapas.DataTraductoradoIngles
 import com.example.consola.data.mapas._InformacionDeCarrera
 import java.math.RoundingMode
 
@@ -40,7 +46,7 @@ class Carrera(var nombre: String) {
 
 
     companion object {
-        val carrerasDisponibles = mapOf(
+        private val carrerasDisponiblesDesordenadas = mapOf(
             "Arquitectura" to DataArquitectura,
             "Licenciatura en Sistemas" to DataLicenciaturaEnSistemas,
             "Ingeniería Electromecánica" to DataIngenieriaElectromecanica,
@@ -70,8 +76,17 @@ class Carrera(var nombre: String) {
             //"Licenciatura en Economía (Plan VII)" to DataEconomiaPlanVII,
             //"Licenciatura en Economía (Plan VIII)" to DataEconomiaPlanVIII,
             "Medicina Veterinaria" to DataMedicinaVeterinaria,
-        ).toSortedMap()
+            "Analista Programador Universitario" to DataAPU,
+            "Analista en TIC" to DataAnalistaEnTIC,
+            "Traductorado Público Nacional en Lengua Inglesa" to DataTraductoradoIngles,
+            "Profesorado en Lengua y Literatura Inglesas" to DataProfesoradoIngles,
+            "Liceniatura en Sociología" to DataLicenciaturaEnSociologia,
+            "Profesorado en Sociología" to DataProfesoradoEnSociologia
+
+        )
+        val carrerasDisponibles = carrerasDisponiblesDesordenadas.toSortedMap()
     }
+
 
     private val carreraActual: _InformacionDeCarrera = carrerasDisponibles[nombre]
         ?: throw IllegalArgumentException("Carrera no soportada")
