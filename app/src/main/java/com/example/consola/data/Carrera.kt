@@ -4,6 +4,7 @@ import com.example.consola.data.mapas.DataAbogacia
 import com.example.consola.data.mapas.DataAnalistaEnTIC
 import com.example.consola.data.mapas.DataAPU
 import com.example.consola.data.mapas.DataArquitectura
+import com.example.consola.data.mapas.DataCienciaDeDatos
 import com.example.consola.data.mapas.DataDisenoComunicacionVisual
 import com.example.consola.data.mapas.DataDisenoIndustrial
 import com.example.consola.data.mapas.DataIngenieriaAeroespacial
@@ -81,7 +82,8 @@ class Carrera(var nombre: String) {
             "Traductorado Público Nacional en Lengua Inglesa" to DataTraductoradoIngles,
             "Profesorado en Lengua y Literatura Inglesas" to DataProfesoradoIngles,
             "Liceniatura en Sociología" to DataLicenciaturaEnSociologia,
-            "Profesorado en Sociología" to DataProfesoradoEnSociologia
+            "Profesorado en Sociología" to DataProfesoradoEnSociologia,
+            "Ciencia de Datos en Organizaciones" to DataCienciaDeDatos
 
         )
         val carrerasDisponibles = carrerasDisponiblesDesordenadas.toSortedMap()
